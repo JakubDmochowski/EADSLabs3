@@ -52,42 +52,26 @@ class AVLTree {
 
 template<typename Key, typename Info>
 short int AVLTree<Key, Info>::rebalance(Node*& subtree) {
-
     if(!subtree) {
         return 0;
     }
     short int lheight = rebalance(subtree->left);
     short int rheight = rebalance(subtree->right);
-
     subtree->balanceFactor = rheight - lheight;
-    if(subtree->balanceFactor == 2 && subtree->right->balanceFactor == 0) {
-        ///lr
+    if(subtree->balanceFactor == 2 && subtree->right->balanceFactor > -1) {
         rotateLeft(subtree);
         return rebalance(subtree);
     }
-    if(subtree->balanceFactor == -2 && subtree->left->balanceFactor == 0) {
-        ///lr
+    if(subtree->balanceFactor == -2 && subtree->left->balanceFactor < 1) {
         rotateRight(subtree);
         return rebalance(subtree);
     }
-    if(subtree->balanceFactor == 2 && subtree->right->balanceFactor == 1) {
-        ///rr
-        rotateLeft(subtree);
-        return rebalance(subtree);
-    }
     if(subtree->balanceFactor == 2 && subtree->right->balanceFactor == -1) {
-        ///rl
         rotateRight(subtree->right);
         rotateLeft(subtree);
         return rebalance(subtree);
     }
-    if(subtree->balanceFactor == -2 && subtree->left->balanceFactor == -1) {
-        ///ll
-        rotateRight(subtree);
-        return rebalance(subtree);
-    }
     if(subtree->balanceFactor == -2 && subtree->left->balanceFactor == 1) {
-        ///lr
         rotateLeft(subtree->left);
         rotateRight(subtree);
         return rebalance(subtree);
@@ -120,7 +104,7 @@ void AVLTree<Key, Info>::graph(const Node* subgraph, int indent) const {
         std::cout << setw(indent) << " " << subgraph->key << " " << subgraph->balanceFactor << endl;
         graph(subgraph->left, indent + 8);
     } else {
-        std::cout << setw(indent) << " \n";
+        std::cout << "\n";
     }
 }
 
@@ -251,7 +235,7 @@ bool AVLTree<Key, Info>::remove(const Key& key) {
 
 template<typename Key, typename Info>
 bool AVLTree<Key, Info>::remove(Node* toDelete, Node* toDeleteParent) {
-    if(toDelete->left && toDelete->right) { ///2 children
+    if(toDelete->left && toDelete->right) {
         Node* toSwap = toDelete->right;
         toDeleteParent = toDelete;
         while (toSwap->left != nullptr) {
