@@ -144,6 +144,7 @@ bool AVLTree<Key, Info>::insert(Node*& root, const Key& key, const Info& info) {
 template<typename Key, typename Info>
 void AVLTree<Key, Info>::clear() {
     clear(root);
+    root = nullptr;
 }
 
 template<typename Key, typename Info>
