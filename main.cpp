@@ -22,7 +22,6 @@ class AVLTree {
             };
         };
         Node* root;
-        void setRoot(Node*);
         short int max(short int a, short int b) const;
         void rotateLeft(Node*& node);
         void rotateRight(Node*& node);
@@ -50,11 +49,6 @@ class AVLTree {
         template<typename K, typename I>
         friend ostream& operator<<(ostream&, const AVLTree<K, I>&);
 };
-
-template<typename Key, typename Info>
-void AVLTree<Key, Info>::setRoot(Node* r) {
-    root = r;
-}
 
 template<typename Key, typename Info>
 short int AVLTree<Key, Info>::rebalance(Node*& subtree) {
@@ -282,7 +276,6 @@ bool AVLTree<Key, Info>::remove(Node* toDelete, Node* toDeleteParent) {
     delete toDelete;
     rebalance(root);
     return true;
-    //rebalance(root);
 };
 
 template<typename Key, typename Info>
