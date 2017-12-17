@@ -285,7 +285,6 @@ ostream& operator<<(ostream& os, const AVLTree<Key, Info>& tree) {
 
 int main()
 {
-    cout << "Hello world!" << endl;
     AVLTree<int, string> test;
     test.insert(6, "six");
     test.insert(7, "seven");
