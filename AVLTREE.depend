@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1513546375 source:c:\users\user\desktop\workspace\eads\eadslabs3-master\main.cpp
+	<iostream>
+	<iomanip>
+
