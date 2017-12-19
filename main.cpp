@@ -101,7 +101,7 @@ template<typename Key, typename Info>
 void AVLTree<Key, Info>::graph(const Node* subgraph, int indent) const {
     if(subgraph) {
         graph(subgraph->right, indent + 8);
-        std::cout << setw(indent) << " " << subgraph->key << " " << subgraph->balanceFactor << endl;
+        std::cout << setw(indent) << " " << subgraph->key << " " << subgraph->info << endl;
         graph(subgraph->left, indent + 8);
     } else {
         std::cout << "\n";
