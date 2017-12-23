@@ -56,7 +56,8 @@ bool assertContent(error_messenger& em, const AVLTree<K, I>& avl, const string& 
     ss << avl;
     if (ss.str() != res)
     {
-        em.report_error("Invalid output " + ss.str() + " should be " + res);
+        em.report_error("Inv
+    graph();alid output " + ss.str() + " should be " + res);
         return false;
     }
     return true;
@@ -102,7 +103,7 @@ int main()
     em.report_errors("Empty avl tree: ");
 
     {
-        vector<int> keys = {1, 2, 3, 4, 5, 6, 7, 8};
+        vector<int> keys{1, 2, 3, 4, 5, 6, 7, 8};
         vector<float> values{1.1f, 2.2f, 3.3f, 4.4f, 5.5f, 6.6f, 7.7f, 8.8f};
 
         vector<int> indices{0, 1, 2, 3, 4, 5, 6, 7};
@@ -126,7 +127,6 @@ int main()
         }
     }
     em.report_errors("Exhaustive insertions: ");
-
 
     {
         vector<float> keys{1.1f, 2.2f, 3.3f, 4.4f, 5.5f, 6.6f, 7.7f, 8.8f};
@@ -159,7 +159,6 @@ int main()
     // This class is based on the AVLTree and its purpose is to count words
     // The class interface should be derived from this code
 
-/*
     cout << "\n\nWordCounter tests\n\n";
 
     vector<string> simplistic {
@@ -189,9 +188,9 @@ int main()
         wc.add(word);
     cout << "\n\nThe Voyage of Beagle by Charles Darwin contains: " << wc.size() << " different words.\n";
 
-*/
     return 0;
 }
+
 /* Output should be similar to this:
 
 Empty avl tree: No errors detected! (in 0 seconds.)

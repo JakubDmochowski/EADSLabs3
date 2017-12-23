@@ -1,5 +1,23 @@
 # depslib dependency file v1.0
-1513546375 source:c:\users\user\desktop\workspace\eads\eadslabs3-master\main.cpp
+1513803398 source:c:\users\user\desktop\workspace\eads\eadslabs3-master\main.cpp
+	<algorithm>
+	<chrono>
+	<fstream>
 	<iostream>
+	<sstream>
+	<string>
+	<vector>
+	"avltree.h"
+
+1513803335 source:c:\users\user\desktop\workspace\eads\eadslabs3-master\avltree.cpp
 	<iomanip>
+	"avltree.h"
+
+1513801544 c:\users\user\desktop\workspace\eads\eadslabs3-master\avltree.h
+	<iostream>
+	"avltree.cpp"
+
+1513803335 c:\users\user\desktop\workspace\eads\eadslabs3-master\avltree.cpp
+	<iomanip>
+	"avltree.h"
 
